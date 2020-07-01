@@ -1,7 +1,18 @@
+from os import system
 from random import randint
 import mariadb
 import datetime
 import time
+
+# ************************************************************************* #
+#                                                                           #
+#                              CommonFunctions                              #
+#                                                                           #
+# ************************************************************************* #
+
+# function: clear screen
+def clear_screen():
+    _ = system("clear")
 
 # ************************************************************************* #
 #                                                                           #
@@ -46,10 +57,20 @@ class database:
 # ************************************************************************* #
 
 class control:
-    def __init__(self):
-#       P, I, D        
-        continue
+    def __init__(self,P,I,D,stpt,low,high):     
+        self.pid = PID(P,I,D,stpt)
+        self.pid.sample_time = 1
+        self.pid.output_limits = (low, high)
 
+    def celcius_to_fahrnheit(self,temp_c):
+        temp_f = (temp_c * (9/5) +32
+
+        return temp_f
+
+    def percent_to_da(self, valve_percent):
+        da_signal = ((4000-800)/(100-0)) * valve_percent + 800
+
+        return da_signal
 
 
 # ************************************************************************* #
